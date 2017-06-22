@@ -1,0 +1,75 @@
+<h2>Grille</h2>
+
+<table width=100%>
+{{#each lignes}}
+<tr>
+{{#each this}}
+{{#if this.black}}
+<td class="blackCell cellCoords"></td>
+{{else}}
+<td class="cellCoords {{#unless this.mot}}noMot{{/unless}}">{{#if this.mot}}{{{this.mot.htmlHeadTag}}}{{this.indice}}{{/if}}</td>
+{{/if}}
+{{/each}}
+</tr>
+<tr>
+{{#each this}}
+{{#if this.black}}
+<td class="blackCell cell"></td>
+{{else}}
+{{#if this.mot}}
+<td class="letterCell cell"><span class="masque">?</span></td>
+{{else}}
+<td class="letterCell cell noMot">{{this.letter}}</td>
+{{/if}}
+{{/if}}
+{{/each}}
+</tr>
+{{/each}}
+</table>
+
+<br/>
+<br/>
+
+<table width=100%>
+{{#each mots}}
+<tr>
+{{#each this}}
+{{#if this.head}}
+<td class="cellCoords headMot"></td>
+{{else}}
+{{#if this.black}}
+<td class="blackCell cellCoords"></td>
+{{else}}
+<td class="cellCoords {{#unless this.indice}}noMot{{/unless}}">{{#if this.indice}}{{this.indice}}{{/if}}</td>
+{{/if}}
+{{/if}}
+{{/each}}
+</tr>
+<tr>
+{{#each this}}
+{{#if this.head}}
+<td class="cell headMot">{{{this.head}}}</td>
+{{else}}
+{{#if this.indice}}
+<td class="cell"><span class="masque">?</span></td>
+{{else}}
+{{#if this.black}}
+<td class="blackCell cellCoords"></td>
+{{else}}
+<td class="cell noMot">{{this.letter}}</td>
+{{/if}}
+{{/if}}
+{{/if}}
+{{/each}}
+</tr>
+{{/each}}
+</table>
+
+<br/>
+<br/>
+
+<p class="definition">
+{{#each definitions}}
+<span class="definitiontag">{{{this.tagHtml}}}</span> {{this.definition}}
+{{/each}}
+</p>

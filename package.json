@@ -1,0 +1,14 @@
+{
+  "name": "telegrille",
+  "version": "0.0.1",
+  "description": "Site for telegrille",
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-contrib-watch": "latest",
+    "grunt-contrib-handlebars": "latest",
+    "grunt-contrib-coffee": "latest",
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-concat": "latest",
+    "grunt-contrib-cssmin": "latest"
+  }
+}

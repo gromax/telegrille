@@ -1,0 +1,115 @@
+\documentclass[11pt]{article}
+\title{T\'el\'egrille }
+
+\usepackage{etex}
+\usepackage[french]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{amsmath,amssymb}
+\usepackage{multicol}
+\usepackage[top=1.5cm, bottom=2cm, left=1cm, right=1cm]{geometry}
+\usepackage{pstricks-add} % tracé de courbes
+\usepackage{enumerate}
+\usepackage{fancybox} % Pour les encadrés
+
+\usepackage{tikz}
+\frenchbsetup{StandardItemLabels=true} % bullets pour les items
+\renewcommand\arraystretch{2}
+
+\newenvironment{changemargin}[2]{\begin{list}{}{%
+\setlength{\topsep}{0pt}%
+\setlength{\leftmargin}{0pt}%
+\setlength{\rightmargin}{0pt}%
+\setlength{\listparindent}{\parindent}%
+\setlength{\itemindent}{\parindent}%
+\setlength{\parsep}{0pt plus 1pt}%
+\addtolength{\leftmargin}{#1}%
+\addtolength{\rightmargin}{#2}%
+}\item }{\end{list} }
+
+\usepackage{ifthen}
+\usepackage{intcalc}
+\begin{document}
+\begin{changemargin}{-.75cm}{0cm}
+
+\begin{center}
+\edef\c{21} % Nombre de colonnes
+\begin{tikzpicture}[x=.8cm,y=1.2cm]
+\foreach[count=\i] \tag in { B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B, B } {
+	\edef\x{\intcalcMod{\i-1}{\c}};
+	\edef\y{ -\i/\c+\x/\c+1/\c };
+	\ifthenelse{ \equal{\tag}{B} \OR \equal{\tag}{N} }{
+		\fill[color=black] (\x,\y) rectangle ({\x+1},{\y-1});
+	}{
+		\draw[line width=.5pt] (\x,\y) rectangle ({\x+1},{\y-1});
+		\draw ({\x+.5},\y) node[below] {\scriptsize\tag};
+	}
+};
+\end{tikzpicture}
+\end{center}
+
+\begin{tikzpicture}[x=.8cm,y=1.2cm]
+\newcounter{head};
+\newcounter{col}[head]
+\edef\deltax{0}
+\edef\deltay{0}
+
+\foreach[count=\i] \tag in { H, N, N, N, N, N, N, N, N, H, N, N, N, N, N, N, H, N, N, N, N, N, N, N, H, N, N, N, N, N, N, N, N, N, H, N, N, N, N, N, N, N, H, N, N, N, N, N, N, N, N, H, N, N, N, N, N, N, N, N, N, H, N, N, N, N, N, N, N, N, H, N, N, N, N, N, N, N, H, N, N, N, N, N, N, H, N, N, N, N, N, N, N, N, H, N, N, N, N, N, N, N, N, H, N, N, N, N, N, N, N, N, N, H, N, N, N, N, N, N, N, N, H, N, N, N, N, N, N, H, N, N, N, N, N, N, N, H, N, N, N, N, N, N, N, H, N, N, N, N, N, N, N, H, N, N, N, N, N, N, N, H, N, N, N, N, N, N, N, H, N, N, N, N, N, N, N, H, N, N, N, N, N, N, N, N, H, N, N, N, N, N, N, N, N, H, N, N, N, N, N, N, N, H, N, N, N, N, N, N } {
+
+	\ifthenelse{ \equal{\tag}{H} }{
+		%Header
+		\stepcounter{head}
+		\ifthenelse{\value{head}>13}{
+			\edef\deltax{12};
+			\edef\deltay{13};
+		}{}
+		\fill[color=Mahogany] (\deltax,{-\value{head}+\deltay}) rectangle ({\deltax+1},{-\value{head}-1+\deltay});
+		\draw[color=white] ({\deltax+.5},{-\value{head}-.5+\deltay}) node{\textbf{\Alph{head}
+}};
+	}{
+		\ifthenelse{\value{head}>13}{
+			\edef\deltax{12};
+			\edef\deltay{13};
+		}{}	 % étrange qu'il faille le réécrire...
+		\draw[line width=.5pt, fill=white] ({\value{col}+1+\deltax},{-\value{head}+\deltay}) rectangle ({\value{col}+2+\deltax},{-\value{head}-1+\deltay});
+		\draw ({\value{col}+1.5+\deltax},{-\value{head}+\deltay}) node[below] {\scriptsize\tag};
+		\stepcounter{col};
+	}
+};
+
+
+\end{tikzpicture}
+\end{changemargin}
+
+\textbf{ A :} Une ancienne région
+\textbf{ B :} \textbf{Monstre marin}
+\textbf{ C :} Elles se terminent à Ault
+\textbf{ D :} Fille de Céphée et Cassiopée
+\textbf{ E :} On peut en vivre de drôles
+\textbf{ F :} Sortes de crabes
+\textbf{ G :} \textit{Le vrai prénom d'une héroïne}
+\textbf{ H :} \textbf{Plantes grimpantes}
+\textbf{ I :} \textbf{Face à Denise et Philippe}
+\textbf{ J :} \textit{Il épouse l'héroïne sus-nommée}
+\textbf{ K :} Dans le spectre auditif du chien
+\textbf{ L :} Voyageurs
+\textbf{ M :} \textit{Un évêque qui offre des chandeliers}
+\textbf{ N :} On teste l'intellectuel
+\textbf{ O :} Entre haute et basse
+\textbf{ P :} Fille de Roderic Borgia
+\textbf{ Q :} Elles ne sont pas toutes bonnes à dire
+\textbf{ R :} Restent cachés
+\textbf{ S :} Une salle vitrée
+\textbf{ T :} Réserve nutritive chez les angiospermes
+\textbf{ U :} Frêle
+\textbf{ V :} Trop de réflexion peut avoir cette conséquence
+\textbf{ W :} \textbf{Rue de l'Aurore et du Crépuscule}
+\textbf{ X :} Aldohexoses
+\textbf{ Y :} Divisions astrologiques
+
+\begin{itemize}
+\item Les définitions en gras correspondent à des éléments à découvrir sur le parcours.
+\item Les définitions en italique thématique correspondent à des personnages du roman dont le texte est un extrait.
+\end{itemize}
+\end{document}

@@ -1,0 +1,59 @@
+<h2>Corrigé</h2>
+
+<table width=100%>
+{{#each lignes}}
+<tr>
+{{#each this}}
+{{#if this.black}}
+<td class="blackCell cellCoords"></td>
+{{else}}
+<td class="cellCoords {{#unless this.mot}}noMot{{/unless}}">{{#if this.mot}}{{{this.mot.htmlHeadTag}}}{{this.indice}}{{/if}}</td>
+{{/if}}
+{{/each}}
+</tr>
+<tr>
+{{#each this}}
+{{#if this.black}}
+<td class="blackCell cell"></td>
+{{else}}
+<td class="letterCell cell {{#unless this.mot}}noMot{{/unless}}">{{this.letter}}</td>
+{{/if}}
+{{/each}}
+</tr>
+{{/each}}
+</table>
+
+<br/>
+<br/>
+
+<table>
+{{#each mots}}
+<tr>
+{{#each this}}
+{{#if this.head}}
+<td class="cellCoords headMot"></td>
+{{else}}
+<td class="cellCoords {{#unless this.indice}}noMot{{/unless}}">{{#if this.indice}}{{this.indice}}{{/if}}</td>
+{{/if}}
+{{/each}}
+</tr>
+<tr>
+{{#each this}}
+{{#if this.head}}
+<td class="cell headMot">{{{this.head}}}</td>
+{{else}}
+<td class="cell {{#unless this.indice}}noMot{{/unless}}">{{this.letter}}</td>
+{{/if}}
+{{/each}}
+</tr>
+{{/each}}
+</table>
+
+<br/>
+<br/>
+
+<p class="definition">
+{{#each definitions}}
+<span class="definitiontag">{{{this.tagHtml}}}</span> {{this.definition}}
+{{/each}}
+</p>

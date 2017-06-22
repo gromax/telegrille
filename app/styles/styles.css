@@ -1,0 +1,55 @@
+table {
+	border-collapse: collapse;
+	margin:0px;
+}
+
+td.cell {
+	padding:4px 10px;
+	text-align: center;
+	border-bottom: 1px solid #000;
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+	font-size: 20px;
+}
+td.cellCoords {
+	padding-top: 2px;
+	text-align: center;
+	border-top: 1px solid #000;
+	border-left: 1px solid #000;
+	border-right: 1px solid #000;
+	font-size: 10px;
+	color:#222;
+}
+
+span.masque {
+	color:transparent;
+}
+
+td.headMot {
+	background-color: #282;
+	color:white;
+	font-weight: bold;
+}
+td.blackCell {
+	background-color: black;
+}
+td.letterCell {}
+td.noMot {
+	color:red;
+	background-color: #FFDDDD;
+}
+
+span.definitiontag {
+	border: 1px solid #000;
+	padding: 4px;
+	font-weight: bold;
+	color:red;
+	font-size: 18px;
+}
+
+p.definition {
+	font-size: 15px;
+	line-height: 1.8;
+}
+
+

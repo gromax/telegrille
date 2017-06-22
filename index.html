@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+			<!--<link rel="stylesheet" href="./dist/styles.min.css" media="screen"/>-->
+			<link href="./vendor/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" media="screen">
+			<link rel="stylesheet" href="./app/styles/styles.css" media="screen"/>
+			<script src="./vendor/jquery/dist/jquery.min.js"></script>
+			<script src="./vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+			<script src="./vendor/bootstrap/dist/js/bootstrap.min.js"></script>
+			<script src="./vendor/handlebars/handlebars.runtime.min.js"></script>
+			<script src="./dist/app.js"></script>
+			<script src="./dist/templates.hbs.js"></script>
+			<title>Générateur de Télégrille</title>
+	</head>
+	<body onload="Controller.init();">
+		<nav class="navbar navbar-default" role="navigation">
+			<div class="container-fluid">
+				<div class="navbar-header">
+					<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="#Home">Télégrille</a>
+				</div>
+			</div>
+		</nav>
+
+		<div class="container">
+			<div class="row">
+				<div class="col-xs-12 col-md-10 col-md-offset-1 col-xs-offset-0">
+					<div id="mainContent">
+						<form id="form">
+							<div class="form-group">
+								<label for="texte">Texte :</label>
+								<textarea class="form-control" rows="5" id="texte" name="texte">DANS CETTE VALLEE SOLITAIRE JE SUIS PERDU COMME DANS L'IMMENSITE DE LA MER. LES JOURS SUIVENT LES NUITS, CHAQUE JOURNEE NOUVELLE EFFACE CELLE QUI L'A PRECEDEE. POUR CELA JE PRENDS DES NOTES SUR LES CAHIERS ACHETES CHEZ LE CHINOIS DE PORT MATHURIN, POUR QU'IL RESTE DES TRACES DU TEMPS QUI PASSE.</textarea>
+							</div>
+							<div class="form-group">
+								<label for="mots">Mots (séparés par ;) :</label>
+								<textarea class="form-control" rows="5" id="mots" name="mots">CONFERENCES;PAROLES;MUSIQUE;CHORALE;MARMOTTES;SEMAPHORES;THERAPIE;JUPITER;TELECHAT;LUDETE;QUANTIQUE;QUESTIONS;ZELATEURS;VALLADOLID;VERSEURS;JULIEN;CRECELLES;PARALLELEPIPEDE;DESINSECTISER;DEFENDERESSES;VENENEUSES;POUJADISME;CHUCHOTE;JURONS;MEDICINAL;DUCTILES;MUSCS</textarea>
+							</div>
+							<div class="form-group">
+								<label for="definitions">Définitions (séparés par ;) :</label>
+								<textarea class="form-control" rows="5" id="definitions" name="definitions"></textarea>
+							</div>
+							<div class="form-group">
+								<label for="ncols">Nombre de colonnes de texte :</label>
+								<input value="20" id="ncols" name="ncols">
+							</div>
+							<div class="form-group">
+								<label for="code">Code de sauvegarde :</label>
+								<textarea class="form-control" rows="5" id="code" name="code"></textarea>
+							</div>
+							<button type="submit" class="btn btn-default">Valider</button>
+							<button type="button" id="decode-button" class="btn btn-default">Décoder</button>
+							<div class="form-group">
+								<label for="tex">Sortie Tex :</label>
+								<textarea class="form-control" rows="5" id="tex" name="tex"></textarea>
+							</div>
+						</form>
+					</div>
+					<div id="sujet"></div>
+					<div id="correction"></div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>

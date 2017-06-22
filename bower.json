@@ -1,0 +1,10 @@
+{
+  "name": "telegrille",
+  "version": "1.0.0",
+  "dependencies": {
+    "jquery": "latest",
+    "jquery-validation": "latest",
+    "bootstrap": "^3.3.6",
+    "handlebars": "latest"
+  }
+}
